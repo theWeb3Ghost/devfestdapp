@@ -31,7 +31,6 @@ signInBtn.addEventListener('click', async () => {
     alert("Sign-in failed: " + e.message);
   }
 });
-
 // auto session restore
 const saved = sessionStorage.getItem('appUser');
 if (saved) {
