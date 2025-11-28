@@ -1,12 +1,119 @@
-<!DOCTYPE html>
-<html>
-    <head>
-           <title> Coming soon</title>
-    </head>
-    <body style="font-family: sans-serif; text-align:center; margin-top: 100px;">
-        <h1>
-            website coming soon
-        </h1>
-        <p> check later </p>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>YenDevDapp</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Firebase SDK -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+<div id="app" class="center-screen">
+
+  <!-- LOGIN SCREEN -->
+  <section id="signin-screen" class="card">
+    <h1>YenDevDapp</h1>
+    <p class="muted">Login with Google to continue</p>
+    <button id="google-signin" class="btn btn-google">Sign in with Google</button>
+    <p class="small muted">Firebase authenticates you — backend verifies your token.</p>
+  </section>
+
+  <!-- MAIN SCREEN -->
+  <main id="main-screen" class="hidden">
+
+    <!-- TOPBAR -->
+    <header class="topbar card">
+      <div class="dev-card">
+        <span>Checkout the amazing dev who built this:</span>
+        <a id="dev-link" href="#" target="_blank">YenDev</a>
+      </div>
+    </header>
+
+    <section class="content card">
+
+      <!-- BALANCES -->
+      <div class="balances">
+
+        <!-- Mint Card -->
+        <div class="token-card">
+          <h3>Mint</h3>
+          <div class="mint-container">
+            <span id="mint-amount">—</span>
+            <button id="claim-btn" class="btn btn-primary">Mint Tokens</button>
+          </div>
+        </div>
+
+        <!-- Balance Card -->
+        <div class="token-card">
+          <h3>Balance</h3>
+          <div class="balance-container">
+            <span id="token-balance">—</span>
+            <button id="refresh-balance" class="btn btn-icon" title="Refresh">
+              🔄
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SEND / RECEIVE -->
+      <div class="plane-controls">
+
+        <button id="send-btn" class="plane-btn">
+          <svg viewBox="0 0 24 24" class="icon paper-plane">
+            <path d="M2 21l20-9L2 3l5 7-5 11z"/>
+          </svg>
+          <span>Send</span>
+        </button>
+
+        <button id="receive-btn" class="plane-btn">
+          <svg viewBox="0 0 24 24" class="icon paper-receive">
+            <path d="M2 3l20 9-20 9 5-7-5-11z"/>
+          </svg>
+          <span>Receive</span>
+        </button>
+
+      </div>
+
+      <!-- SEND FORM -->
+      <div id="send-form" class="send-form hidden card">
+        <label>To (UID / username)</label>
+        <input id="to-input" placeholder="recipient UID or username">
+
+        <label>Amount (max 19)</label>
+        <input id="amount-input" type="number" min="1" max="19" value="1">
+
+        <div class="form-actions">
+          <button id="submit-send" class="btn">Submit</button>
+          <button id="cancel-send" class="btn btn-ghost">Cancel</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="card small muted">
+      Signed in as 
+      <span id="username" class="copyable" title="Click to copy">—</span>
+      (uid <span id="uid">—</span>)
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- JS Files -->
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/api.js"></script>
+<script type="module" src="js/main.js"></script>
+
+</body>
 </html>

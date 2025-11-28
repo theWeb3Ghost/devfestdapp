@@ -1,0 +1,298 @@
+/* ===============================
+   GENERAL RESET
+=============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* ===============================
+   CENTER APP CONTAINER
+=============================== */
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ===============================
+   CARD STYLE
+=============================== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   TOPBAR / DEV CARD
+=============================== */
+.topbar .dev-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.dev-card a {
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.dev-card a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   BALANCE CARDS
+=============================== */
+.balances {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.token-card {
+  flex: 1 1 200px;
+  padding: 15px;
+}
+
+.token-card h3 {
+  margin-bottom: 10px;
+}
+
+.mint-container,
+.balance-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #0077ff;
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #005fcc;
+}
+
+.btn.btn-primary {
+  background-color: #28a745;
+}
+
+.btn.btn-primary:hover {
+  background-color: #218838;
+}
+
+.btn.btn-ghost {
+  background: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn.btn-icon {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===============================
+   PLANE / SEND ICONS
+=============================== */
+.plane-controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.plane-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.plane-btn:hover {
+  background: #f0f0f0;
+}
+
+.plane-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #0077ff;
+}
+
+/* ===============================
+   SEND FORM
+=============================== */
+.send-form input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* ===============================
+   COPYABLE USERNAME
+=============================== */
+.copyable {
+  cursor: pointer;
+  color: #0077ff;
+}
+
+.copyable:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   HIDDEN ELEMENTS
+=============================== */
+.hidden {
+  display: none;
+}
+
+/* ===============================
+   SMALL / MUTED TEXT
+=============================== */
+.muted {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+/* ===============================
+   GREETING TEXT
+=============================== */
+.greeting {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 600px) {
+  .balances {
+    flex-direction: column;
+  }
+  .plane-controls {
+    flex-direction: column;
+  }
+}
+/* ===============================
+   SIGN-IN SCREEN
+=============================== */
+#signin-screen {
+   background: #d1d2d4;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+}
+
+#signin-screen h1 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+#signin-screen p.muted {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+#signin-screen p.small.muted {
+  font-size: 0.75rem;
+  margin-top: 1.5rem;
+  color: #999;
+}
+
+#signin-screen .btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #444;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0 auto;
+}
+
+#signin-screen .btn-google img {
+  width: 20px;
+  height: 20px;
+}
+
+#signin-screen .btn-google:hover {
+  background: #f7f7f7;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Center the sign-in screen in the page */
+body #signin-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+/* Google Sign-In Button */
+#google-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #d8c9c9;
+  border-radius: 6px;
+  background: #fff;
+  color: #444;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+#google-signin:hover {
+  background: #e1cdcd; /* subtle gray */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); /* subtle lift effect */
+}
