@@ -266,14 +266,6 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* Center the sign-in screen in the page */
-body #signin-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 /* Google Sign-In Button */
 #google-signin {
   display: flex;
