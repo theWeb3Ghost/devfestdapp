@@ -91,7 +91,20 @@ export async function sendTokens(toUsername, amount) {
   return await postJson("token/send", { toUsername, amount }, authToken);
 }
 
-
+// -------------------- save users to backend --------------------
+export async function ensureUserRegistered(uid, name) {
+  try {
+    await fetchBalance(uid);
+  } catch (err) {
+    if (err.message === "User not found") {
+      const authToken = await getAuthToken();
+      await postJson("/user/register", { uid, name }, authToken);
+      console.log("User registered in backend");
+    } else {
+      throw err;
+    }
+  }
+}
 
 // ===============================
 // EXPORT MODULE
@@ -100,4 +113,5 @@ export default {
   fetchBalance,
   sendTokens,
   claimTokens,
+  ensureUserRegistered,
 };
