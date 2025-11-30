@@ -11,6 +11,7 @@ signInBtn.addEventListener('click', async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
+    window.firebaseUser = user;
     const idToken = await user.getIdToken();
 
     const resp = await fetch(`${API_BASE}/auth/google`, {
@@ -34,6 +35,12 @@ signInBtn.addEventListener('click', async () => {
 // auto session restore
 const saved = sessionStorage.getItem('appUser');
 if (saved) {
+
+  const data = JSON.parse(saved);
+
+  if (auth.currentUser) {
+    window.firebaseUser = auth.currentUser;
+  }
   signinScreen.classList.add('hidden');
   mainScreen.classList.remove('hidden');
   window.dispatchEvent(new CustomEvent('app:auth', { detail: JSON.parse(saved) }));
