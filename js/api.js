@@ -52,8 +52,26 @@ async function getAuthToken() {
 // PUBLIC API FUNCTIONS
 // ===============================
 export async function fetchBalance(uid) {
-  return await postJson("/user/balance", { uid });
+  const authToken = await getAuthToken();
+  if (!authToken) throw new Error("Not authenticated");
+
+ 
+  const res = await fetch(`${API_BASE}/user/${uid}`, {
+    method: "GET",
+    headers: {
+      "Authorization": "Bearer " + authToken,
+      "Content-Type": "application/json",
+    }
+  });
+
+  if (!res.ok) {
+    const msg = await res.json().catch(() => null);
+    throw new Error(msg?.error || "API error " + res.status);
+  }
+
+  return await res.json();
 }
+
 
 
 // -------------------- Claim Tokens --------------------
