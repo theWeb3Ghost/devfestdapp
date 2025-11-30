@@ -54,10 +54,7 @@ async function getAuthToken() {
 export async function fetchBalance(uid) {
   return await postJson("/user/balance", { uid });
 }
-// api/token.js
 
-import { postJson } from "./http"; // your helper
-import { getAuthToken } from "./auth"; // your helper
 
 // -------------------- Claim Tokens --------------------
 export async function claimTokens() {
