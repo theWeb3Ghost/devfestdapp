@@ -80,7 +80,7 @@ export async function claimTokens() {
   if (!authToken) throw new Error("Not authenticated");
 
   // No UID is sent; backend uses req.user.uid
-  return await postJson("token/claim", {}, authToken);
+  return await postJson("/token/claim", {}, authToken);
 }
 
 // -------------------- Send Tokens --------------------
@@ -88,7 +88,7 @@ export async function sendTokens(toUsername, amount) {
   const authToken = await getAuthToken();
   if (!authToken) throw new Error("Not authenticated");
 
-  return await postJson("token/send", { toUsername, amount }, authToken);
+  return await postJson("/token/send", { toUsername, amount }, authToken);
 }
 
 // -------------------- save users to backend --------------------
