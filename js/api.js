@@ -8,6 +8,9 @@ const baseURL = API_BASE ;
 // INTERNAL: JSON POST HELPER
 // ===============================
 async function postJson(path, body = {}, authToken = null) {
+  console.log("POST request:", baseURL + path);
+console.log("AuthToken:", authToken);
+
   const headers = { "Content-Type": "application/json" };
 
   if (authToken) {
