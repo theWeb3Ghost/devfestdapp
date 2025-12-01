@@ -86,10 +86,17 @@ async function claimTokens() {
 // ===============================
 function animatePlane(type) {
   const svg = document.querySelector(type === "send" ? ".plane.send" : ".plane.receive");
+  
+  if (!svg) {
+    console.warn(`No plane element found for type: "${type}"`);
+    return; // stop function safely
+  }
+
   svg.classList.remove("fly-animation", "fall-animation");
   void svg.offsetWidth; // restart animation
   svg.classList.add(type === "send" ? "fly-animation" : "fall-animation");
 }
+
 
 // ===============================
 // SEND TOKENS
